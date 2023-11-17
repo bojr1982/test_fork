@@ -1,0 +1,23 @@
+<div >
+<mat-card class="toolbar-display">
+    <div >
+    <!-- <button  class="button-toolbar-grid" layout-align="center" (click)="filter()" [hidden]="hiddenButtonFilter">
+      <span class="icon-filter"> Filtrer</span>   
+    </button> -->
+    <button  class="button-toolbar-grid" (click)="detailsCommande()" *ngIf="displayButtondetailsCommande" style="margin-right: 6px;">
+      <span class="icon-details">Details</span> 
+    </button>
+      <button  class="button-toolbar-grid" (click)="csvDownload()" *ngIf="displayButtonExport" style="margin-right: 6px;">
+        <span class="icon-excel">Export</span> 
+      </button>
+      <button  class="button-toolbar-grid" (click)="pdfDownload()" *ngIf="displayButtonPdf">
+        <span class="icon-pdf">Pdf</span> 
+      </button>
+    </div>  
+  </mat-card> 
+</div>
+
+
+
+
+

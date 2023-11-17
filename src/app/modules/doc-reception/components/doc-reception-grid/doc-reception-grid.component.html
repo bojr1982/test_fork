@@ -1,0 +1,124 @@
+<div >
+
+    <app-text-input (commandeEvent)="getCommande($event)"></app-text-input>
+     <div appSetPaddingDiv *ngIf="showPanel" >
+      <table>
+      <tr>
+        <td appSetFontTd appSetPaddingTd>
+          FOURNISSEUR :
+        </td>
+        <td appSetPaddingTd appSetPaddingTd>{{commande.fournisseur}}</td>
+        <td appSetFontTd appSetPaddingTd>
+          LIBELLE :
+        </td>
+        <td appSetPaddingTd appSetPaddingTd>{{commande.libelle_four}}</td>
+        <td appSetFontTd appSetPaddingTd>
+          DATE COMMANDE :
+        </td>
+        <td appSetPaddingTd appSetPaddingTd>{{commande.datecommande}}</td>
+        <td appSetFontTd appSetPaddingTd>
+          DEVISE :
+        </td>
+        <td appSetPaddingTd appSetPaddingTd>{{commande.devise}}</td>
+        <td appSetFontTd appSetPaddingTd>
+          NOMBRE POSTES :
+        </td>
+        <td appSetPaddingTd appSetPaddingTd>{{commande.nbpostes}}</td>
+        <td appSetFontTd appSetPaddingTd>
+          POSTES TERMINES :
+        </td>
+        <td appSetPaddingTd appSetPaddingTd>{{commande.nbpostes_termine}}</td>
+
+      </tr>
+
+     </table>
+    </div>
+
+
+     <div class="filterDiv" *ngIf="showPanel">
+      <mat-form-field>
+        <mat-label>Filter : </mat-label>
+        <input matInput (keyup)="filterChange($event)">
+      </mat-form-field>
+     </div>
+    
+    
+     <app-toolbar-grid 
+       [datasource]="data"
+       [exportdata]="datatoExportExcel" 
+       [documentPdf]="pdfsource"
+       [displayButtondetailsCommande]="true"
+       componentToExport="detailsCommande" *ngIf="showPanel"
+     ></app-toolbar-grid>
+    
+    
+     <div  class="reception-grid-container">  
+      <table mat-table matSort  [dataSource]="datasource">
+        
+        <ng-container matColumnDef="ncommande">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef> No.Commande </th>
+          <td mat-cell *matCellDef="let element"> {{element.ncommande}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="nposte">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef> No.Poste </th>
+          <td mat-cell *matCellDef="let element"> {{element.nposte}} </td>
+        </ng-container>
+    
+        
+        <ng-container matColumnDef="unite_sortie">
+          <th mat-header-cell *matHeaderCellDef> Unite.Sortie </th>
+          <td mat-cell *matCellDef="let element"> {{element.unite_sortie}} </td>
+        </ng-container>
+      
+        
+        <ng-container matColumnDef="unite_achat">
+          <th mat-header-cell *matHeaderCellDef> Unite.Achat </th>
+          <td mat-cell *matCellDef="let element"> {{element.unite_achat}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="conv_facteur">
+          <th mat-header-cell *matHeaderCellDef> Facteur.Convertion </th>
+          <td mat-cell *matCellDef="let element"> {{element.conv_facteur}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="qte_a_recevoir">
+          <th mat-header-cell *matHeaderCellDef> Qte.aRecevoir </th>
+          <td mat-cell *matCellDef="let element"> {{element.qte_a_recevoir}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="mnemref">
+          <th mat-header-cell *matHeaderCellDef> Mnemonic.Reference </th>
+          <td mat-cell *matCellDef="let element"> {{element.mnemref}} </td>
+        
+        </ng-container>
+
+        <ng-container matColumnDef="designation">
+            <th mat-header-cell *matHeaderCellDef> Designation</th>
+            <td mat-cell *matCellDef="let element"> {{element.designation}} </td>
+          
+          </ng-container>
+        <!-- <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let element"> 
+             
+               <button class="btn btn-sm btn-info" (click)="displayDetailsReception(element)">
+                <i class="fa fa-search" ></i></button> 
+              <button class="btn btn-sm btn-warning" (click)="displayCommande(element)">
+                <i class="fa fa-edit" ></i></button>
+              <button class="btn btn-sm btn-danger" (click)="printReception(element)">
+                <i class="fa fa-file-pdf-o"></i></button> 
+          </td>
+        </ng-container> -->
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr (click)="getRow(row)" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <!-- <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr> -->
+      </table>
+    
+    
+    <mat-paginator [pageSizeOptions]="[10,20,50]" showFirstLastButtons></mat-paginator>
+    </div>
+    </div> 
+      
+    

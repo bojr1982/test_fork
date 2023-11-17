@@ -1,0 +1,50 @@
+
+<div cdkDrag cdkDragRootElement=".cdk-overlay-pane" class="container">
+  <h2 mat-dialog-title class="mat-dialog-title">FORMULAIRE RECEPTION</h2> 
+
+<mat-dialog-content class="mat-typography">
+<form [formGroup]="reactiveForm" class="form-horizontal">
+
+      <mat-form-field appearance="outline">
+        <mat-label>N° COMMANDE</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="ncommande">       
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>N° RERECEPTION</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="refreception">       
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>FOURNISSEUR</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="fournisseur">       
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>LIBELLE</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="libelle_four">       
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>DEVISE</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="devise">       
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>DATE RECEPTION</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="datereception">       
+      </mat-form-field>
+</form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+
+  <button  matTooltip="close"  class="btn btn-sm btn-outline-danger margin-btn-dialog" (click)="close()">
+      <span class="icon-annuler">
+      Fermer
+      </span>
+
+ </button>
+
+
+</mat-dialog-actions>
+</div>

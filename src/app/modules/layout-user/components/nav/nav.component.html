@@ -1,0 +1,32 @@
+<div class="navbar panel">
+
+    <mat-toolbar >
+
+      <div class="site-image">
+            <img src="assets/images/cpg2.ico" height= "50" width="50">
+      </div>
+     
+      <div class="spacer"> </div>
+            
+            <span routerLinkActive="active"><a mat-button mat-button href="http://10.71.0.24/portail/">HOME</a></span>
+            <span routerLinkActive="active"><button mat-button  routerLink="doc-rec" >DOC.RECEPTION</button></span>
+            <span routerLinkActive="active"><button mat-button  routerLink="bon-rec" >BON.RECEPTION</button></span>
+            <span routerLinkActive="active"><button mat-button  routerLink="rec-par-article"  (click)="openDialog()">RECEPTION.PAR.ARTICLE</button></span>
+            <span routerLinkActive="active"><button mat-button [matMenuTriggerFor]="menu">DM</button>
+                  <mat-menu #menu="matMenu" >
+                    <button mat-menu-item routerLink="dm/en">EN</button>
+                    <button mat-menu-item routerLink="dm/hn" class="custom-mat-menu-button">HN</button>
+                    <button mat-menu-item routerLink="dm/suivie" class="custom-mat-menu-button">Suivie DM</button>
+                  </mat-menu>
+                  </span>    
+            <div class="spacer"> </div>
+            <a routerLink="/" mat-button (click)="logout()">LOGOUT</a>
+     
+
+    </mat-toolbar>
+
+</div>
+
+
+
+   

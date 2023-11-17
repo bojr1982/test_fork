@@ -1,0 +1,46 @@
+mat-card{
+    padding-left: 2px;
+    padding-bottom: 2px;
+    padding-right: 21px;
+    padding-top: 16px;
+    display: block;
+    background-color: white;
+}
+.button-toolbar-grid {
+   
+    display: inline;
+    padding: 0 12px;
+    line-height: 25px !important;
+    border: none !important;
+    font-size: 12px;
+    margin: right 10px;
+    width:80px;
+    background-color: white;
+
+  
+  }
+
+.toolbar-display{
+    display: grid;
+    justify-content: flex-end;
+}
+
+  .spacer{
+    flex:1 1 auto;
+}
+
+
+.pdfContent {
+  color: aqua;
+  visibility:hidden;
+  height:0px;
+}
+
+.mat-mdc-card {
+  position: relative;
+  border-radius: 0px;
+  background-color: var(--mdc-elevated-card-container-color, transparent);
+  border-width: 0;
+  border-style: solid;
+  border-color: var(--mdc-elevated-card-container-color, transparent);
+}

@@ -1,0 +1,29 @@
+<div class="div-container"  cdkDragLockAxis="x" cdkDrag>  
+  <mat-form-field appearance="fill">
+    <mat-label>N°COMMANDE</mat-label>
+    <mat-select [formControl]="toppings" multiple matAutocomplete="auto">
+      <mat-option *ngFor="let topping of commandList" [value]="topping">{{topping}}</mat-option>
+    </mat-select>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <div>
+    <button 
+            matTooltip="rechercher"
+            matTooltipPosition="below"
+            class="btn btn-md btn-outline-primary"
+            (click)="submitValues()" [disabled]="enableButton()">
+      <span class="icon-search">
+       Ok
+      </span>
+
+    </button>
+</div>
+</div>
+
+
+

@@ -1,0 +1,86 @@
+<div >
+<div class="titre">bon de reception</div>
+<app-date-input (dateEvent)="getDate($event)"></app-date-input>
+ 
+ <div class="filterDiv" *ngIf="showPanel">
+  <mat-form-field>
+    <mat-label>Filter : </mat-label>
+    <input matInput (keyup)="filterChange($event)">
+  </mat-form-field>
+ </div>
+
+
+ <app-toolbar-grid 
+   [datasource]="data"
+   [exportdata]="datatoExportExcel" 
+   [documentPdf]="pdfsource"
+   componentToExport="reception" *ngIf="showPanel"
+ ></app-toolbar-grid>
+
+
+ <div  class="grid-container">  
+  <table mat-table matSort  [dataSource]="datasource">
+    
+    <ng-container matColumnDef="ncommande">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> No.Commande </th>
+      <td mat-cell *matCellDef="let element"> {{element.ncommande}} </td>
+     
+    </ng-container>
+  
+    <ng-container matColumnDef="refreception">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> No.Reception </th>
+      <td mat-cell *matCellDef="let element"> {{element.refreception}} </td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="fournisseur">
+      <th mat-header-cell *matHeaderCellDef> Fournisseur </th>
+      <td mat-cell *matCellDef="let element"> {{element.fournisseur}} </td>
+    </ng-container>
+  
+    
+    <ng-container matColumnDef="libelle_four">
+      <th mat-header-cell *matHeaderCellDef> Libelle </th>
+      <td mat-cell *matCellDef="let element"> {{element.libelle_four}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="devise">
+      <th mat-header-cell *matHeaderCellDef> Devise </th>
+      <td mat-cell *matCellDef="let element"> {{element.devise}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="datereception">
+      <th mat-header-cell *matHeaderCellDef> Date Reception </th>
+      <td mat-cell *matCellDef="let element"> {{element.datereception}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nb_postes">
+      <th mat-header-cell *matHeaderCellDef> Nombre Postes </th>
+      <td mat-cell *matCellDef="let element"> {{element.nb_postes}} </td>
+      <td mat-footer-cell *matFooterCellDef> 10 </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element"> 
+         
+          <button class="btn btn-sm btn-info" (click)="displayDetailsReception(element)">
+            <i class="fa fa-search" ></i></button>
+          <button class="btn btn-sm btn-warning" (click)="displayReception(element)">
+            <i class="fa fa-edit" ></i></button>
+          <button class="btn btn-sm btn-danger" (click)="printReception(element)">
+            <i class="fa fa-file-pdf-o"></i></button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr (click)="getRow(row)" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+   
+  </table>
+
+
+<mat-paginator [pageSizeOptions]="[10,20,50]" showFirstLastButtons></mat-paginator>
+</div>
+</div> 
+  

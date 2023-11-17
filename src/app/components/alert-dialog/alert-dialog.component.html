@@ -1,0 +1,18 @@
+<h1 mat-dialog-title class="title">
+    {{title}}
+  </h1>
+  
+  <div mat-dialog-content>
+    
+    <p class="icon-alert">{{message}}</p>
+  </div>
+  
+  <div mat-dialog-actions align="center">
+    <button mat-raised-button color="warn" (click)="onConfirm()">Fermer</button> 
+    <!-- <button  matTooltip="Fermer"  class="btn btn-sm btn-outline-danger margin-btn-dialog" (click)="onConfirm()">
+  <span class="icon-annuler">
+  Fermer
+  </span>
+  
+  </button> -->
+  </div>

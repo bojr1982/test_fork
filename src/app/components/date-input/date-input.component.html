@@ -1,0 +1,24 @@
+<div [ngClass]="div_n"  cdkDragLockAxis="x" cdkDrag>  
+  <div class="datepicker">
+      <mat-form-field appearance="fill">
+        <mat-label>Choisir une date</mat-label>
+        <input matInput [matDatepicker]="picker"  [(ngModel)]="valueDateInput"  #input>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+     
+  </div>  
+
+  <div>
+      <button 
+              matTooltip="rechercher"
+              matTooltipPosition="below"
+              class="btn btn-md btn-outline-primary"
+              (click)="submitForm()" [disabled]="enableButton()">
+        <span class="icon-search">
+         Ok
+        </span>
+
+      </button>
+  </div>
+</div>

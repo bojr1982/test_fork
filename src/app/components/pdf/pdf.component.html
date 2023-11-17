@@ -1,0 +1,66 @@
+<div id="content" #content >
+<div *ngFor="let rec of receptions;">
+  <h2 style="text-align: center;">BON DE RECEPTION  DU  {{dateOfBon}}</h2>
+  <table class="table-header">
+     <tbody>
+      <tr>
+        <td>REFERENCE FACTURE</td>
+        <td></td>
+        <td>AUTRES REFERENCES</td>
+      </tr>
+      <tr>
+        <td>Numéro : ............</td>
+        <td>Bon de Livraison  : .............</td>
+      </tr>
+      <tr>
+       
+        <td>Date : ...........</td>
+        <td>Fiche de Transit : .............</td>
+        <td>N° : .............</td>
+      </tr>
+   
+    </tbody>
+  </table>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">N COMMANDE : {{rec.ncommande}}</th>
+          <th scope="col">REF-RECEPT : {{rec.refreception}}</th>
+          <th scope="col">FOURNISSUR : {{rec.fournisseur}}  {{rec.libelle_four}}</th>
+          <th scope="col">DEVISE : {{rec.devise}}</th>
+          <th>P-CONV : </th>
+          <th>PAGE :</th>
+        </tr>
+      </thead>
+      <thead>
+        <tr>
+          <th scope="col">REF-RECEPT</th>
+          <th scope="col">N COMMANDE</th>
+          <th scope="col">FOURNISSUR</th>
+          <th scope="col">DEVISE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of datasource;">
+          <td>{{i.refreception}}</td>
+          <td>{{i.ncommande}}</td>
+          <td>{{i.fournisseur}}</td>
+          <td>{{i.devise}}</td>
+        </tr>
+ 
+      </tbody>
+    </table>
+  </div>
+    <div class="rech-button">
+        <button mat-raised-button
+                matTooltip="rechercher"
+                matTooltipPosition="below"
+                class="example-button alert alert-success"
+                (click)="pdfDownload()">
+          <span class="icon-search">
+           Ok
+          </span>
+  
+        </button>
+    </div>   
+    </div>

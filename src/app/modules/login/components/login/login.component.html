@@ -1,0 +1,57 @@
+ <form class="login-form" [formGroup]="form" (submit)="submitForm()">
+  <div class="d-flex justify-content-center mt-2 mb-3"  >
+    <div class="circle">
+  <!--  <img src="../../../../../assets/images/cpg.png"  alt="Sample image" style="border-radius:150px;">-->
+    <img src="assets/images/cpg.png" alt="cpg logo" style="border-radius:150px;">
+    </div>
+  </div>
+  <h2></h2>
+  <mat-form-field appearance="fill">
+    <mat-label>Matricule</mat-label>
+    <input matInput type="text"  formControlName="matricule">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="mot_pass" >
+    <mat-icon matSuffix (click)="togglePasswordVisibility()">visibility</mat-icon>
+    
+  </mat-form-field>
+  <button mat-raised-button type="submit" color="primary">Login</button>
+</form> 
+<!--
+<form [formGroup]="form" (submit)="submitForm()">
+<div class="row" >
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+    <div class="well">
+      <h4 class="text-primary text-center">Sign in to MIMS Application</h4>
+      <br>
+      <section id="loginForm">
+        
+        <div class="form-group">
+          <label for="Username" class="control-label">Username</label>
+          <div class="input-group">
+            <input name="ctl00$MainContent$Username" type="text" id="Username" class="form-control" style="max-width: none;" formControlName="matricule">
+         </div> 
+         </div>
+        <div class="form-group">
+          <label for="Password" class="control-label">Password</label>
+          <div class="input-group">
+            <input name="ctl00$MainContent$Password" type="password" id="Password" class="form-control" formControlName="mot_pass">
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default" (click)="togglePasswordVisibility()"><i id="PasswordIcon" class="fa fa-eye-slash"></i></button>
+            </div>
+          </div>
+          </div>
+        <div class="form-group">
+          <div class="">
+            <input type="submit"  value="Login"   class="btn btn-primary" style="width: 100%;" >
+          </div>
+        </div>
+        <p>
+          <a >Forgot your password?</a>
+        </p>
+      </section>
+    </div>
+  </div>
+</div> 
+</form>-->

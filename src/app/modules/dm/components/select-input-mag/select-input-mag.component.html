@@ -1,0 +1,21 @@
+<div class="div-container"  cdkDragLockAxis="x" cdkDrag>  
+    <mat-form-field appearance="fill">
+      <mat-label>MAGASIN</mat-label>
+      <mat-select [formControl]="toppings" multiple>
+        <mat-option *ngFor="let topping of wharehouseList" [value]="topping">{{topping}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <div>
+      <button 
+              matTooltip="rechercher"
+              matTooltipPosition="below"
+              class="btn btn-md btn-outline-primary"
+              (click)="submitValues()" [disabled]="enableButton()">
+        <span class="icon-search">
+         Ok
+        </span>
+  
+      </button>
+  </div>
+  </div>

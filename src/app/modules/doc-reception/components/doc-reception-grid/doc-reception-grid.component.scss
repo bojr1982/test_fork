@@ -1,0 +1,35 @@
+.filterDiv{
+    margin-bottom: -20px;
+    background-color: whitesmoke;
+}
+.reception-grid-container {
+   
+    margin-bottom: 50px;
+}
+tr:nth-child(even) {
+    background-color: lightgray;
+}
+.fa button{
+    font-size: 30px;
+    color:aqua
+}
+.btn{
+    border:0px ;
+}
+
+.div-info-cde{
+    display: flex;
+    td{
+        padding-right: 32px;
+    }
+}
+
+.zoom{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.zoom-leave{
+
+    padding-top: 0px;
+    padding-bottom: 0px;
+}

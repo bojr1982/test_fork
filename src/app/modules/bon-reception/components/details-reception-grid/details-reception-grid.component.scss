@@ -1,0 +1,20 @@
+.header-grid-details{
+    display: flex;
+    justify-content: space-around;
+    background-color: #ffc107;
+
+}
+
+
+  .container {
+    cursor:move;
+   
+  }
+
+  tr:nth-child(even) {
+    background-color: lightgray;
+  }
+
+
+
+

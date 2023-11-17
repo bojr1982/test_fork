@@ -1,0 +1,87 @@
+<div class="titre">
+  RECEPTION PAR ARTICLE
+</div>
+
+<div>
+  <mat-form-field>
+    <mat-label>Filter : </mat-label>
+    <input matInput (keyup)="filterChange($event)">
+  </mat-form-field>
+ </div>
+ <app-toolbar-grid 
+   [exportdata]="dataToExportExcel" 
+   [displayButtonPdf] = false
+   componentToExport="reception-article" *ngIf="showPanel"
+ ></app-toolbar-grid>
+<div class="grid-container">
+<table mat-table matSort   [dataSource]="datasource">
+    
+
+  <ng-container matColumnDef="stockcode">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef> STOCK CODE </th>
+    <td mat-cell *matCellDef="let element"> {{element.stockcode}} </td>
+  </ng-container>
+
+    <ng-container matColumnDef="refReception">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> N° Reception </th>
+      <td mat-cell *matCellDef="let element"> {{element.refReception}} </td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="datereception">
+      <th mat-header-cell *matHeaderCellDef> DATE RECEPTION </th>
+      <td mat-cell *matCellDef="let element"> {{element.datereception}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="nCommande">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> N° Commande </th>
+        <td mat-cell *matCellDef="let element"> {{element.nCommande}} </td>
+       
+      </ng-container>
+
+      <ng-container matColumnDef="datecommande">
+        <th mat-header-cell *matHeaderCellDef> DATE COMMANDE </th>
+        <td mat-cell *matCellDef="let element"> {{element.datecommande}} </td>
+      </ng-container>
+
+    <ng-container matColumnDef="qterecu">
+      <th mat-header-cell *matHeaderCellDef> QTE RECU </th>
+      <td mat-cell *matCellDef="let element"> {{element.qterecu}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="qte_cde">
+      <th mat-header-cell *matHeaderCellDef> QTE COMMANDE </th>
+      <td mat-cell *matCellDef="let element"> {{element.qte_cde}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="prix_devise">
+      <th mat-header-cell *matHeaderCellDef> PRIX EN DEVISE </th>
+      <td mat-cell *matCellDef="let element"> {{element.prix_devise}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="prix_local">
+      <th mat-header-cell *matHeaderCellDef> PRIX EN MLT </th>
+      <td mat-cell *matCellDef="let element"> {{element.prix_local}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element"> 
+         
+          <button class="btn btn-sm btn-info" (click)="getDetailsArticle(element)">
+            <i class="fa fa-search" ></i></button>
+          <button class="btn btn-sm btn-warning" (click)="getDetailsCommande(element)">
+            <i class="fa fa-edit" ></i></button>
+        
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+   
+  </table>
+
+
+<mat-paginator [pageSizeOptions]="[10,20,50]" showFirstLastButtons></mat-paginator>
+</div>

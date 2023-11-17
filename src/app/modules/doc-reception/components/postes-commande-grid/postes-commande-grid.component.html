@@ -1,0 +1,107 @@
+<div cdkDrag cdkDragRootElement=".cdk-overlay-pane" class="container">
+<h2 mat-dialog-title class="mat-dialog-title">DETAILS COMMANDE</h2>
+<mat-dialog-content class="mat-typography">
+  <!-- <div cdkDrag cdkDragRootElement=".cdk-overlay-pane" class="container"> -->
+    <!-- <div class="block-fixed">   
+       <div class="d-flex justify-content-end close">
+       
+        <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
+       </div>
+           -->
+               
+   
+            <table mat-table matSort  [dataSource]="datasource" >
+              <ng-container matColumnDef="select">
+                <th mat-header-cell *matHeaderCellDef [ngStyle]="{'z-index':1}">
+                  <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                                [checked]="selection.hasValue() && isAllSelected()"
+                                [indeterminate]="selection.hasValue() && !isAllSelected()"
+                               >
+                  </mat-checkbox>
+                </th>
+                <td mat-cell *matCellDef="let row" >
+                  <mat-checkbox (click)="$event.stopPropagation()"
+                                (change)="$event ? selection.toggle(row) : null"
+                                [checked]="selection.isSelected(row)"
+                                >
+                  </mat-checkbox>
+                </td>
+              </ng-container>
+            <ng-container matColumnDef="ncommande">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef> No.Commande </th>
+              <td mat-cell *matCellDef="let element"> {{element.ncommande}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="nposte">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef> No.Poste </th>
+              <td mat-cell *matCellDef="let element"> {{element.nposte}} </td>
+            </ng-container>
+        
+            
+            <ng-container matColumnDef="unite_sortie">
+              <th mat-header-cell *matHeaderCellDef> Unite.Sortie </th>
+              <td mat-cell *matCellDef="let element"> {{element.unite_sortie}} </td>
+            </ng-container>
+          
+            
+            <ng-container matColumnDef="unite_achat">
+              <th mat-header-cell *matHeaderCellDef> Unite.Achat </th>
+              <td mat-cell *matCellDef="let element"> {{element.unite_achat}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="conv_facteur">
+              <th mat-header-cell *matHeaderCellDef> Facteur.Convertion </th>
+              <td mat-cell *matCellDef="let element"> {{element.conv_facteur}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="qte_cde">
+              <th mat-header-cell *matHeaderCellDef> Qte.Commandé </th>
+              <td mat-cell *matCellDef="let element"> {{element.qte_cde}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="qte_a_recevoir">
+              <th mat-header-cell *matHeaderCellDef> Qte.àRecevoir </th>
+              <td mat-cell *matCellDef="let element"> {{element.qte_a_recevoir}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="mnemref">
+              <th mat-header-cell *matHeaderCellDef> Mnemonic.Reference </th>
+              <td mat-cell *matCellDef="let element"> {{element.mnemref}} </td>
+            
+            </ng-container>
+    
+            <ng-container matColumnDef="designation">
+                <th mat-header-cell *matHeaderCellDef> Designation</th>
+                <td mat-cell *matCellDef="let element"> {{element.designation}} </td>
+              
+              </ng-container>
+    
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr  mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)" [ngClass]="{'rest-a-recevoir': row.qte_cde != row.qte_a_recevoir}"></tr>
+          </table>
+        
+
+
+</mat-dialog-content>
+
+
+<mat-dialog-actions align="end">
+
+  <button  matTooltip="close"  class="btn btn-sm btn-outline-danger margin-btn-dialog" (click)="close()">
+      <span class="icon-annuler">
+      Fermer
+      </span>
+
+</button>
+  <button  matTooltip="rechercher"  class="btn btn-sm btn-outline-primary" (click)="selectRows()">
+        <span class="icon-search">
+        Ok
+        </span>
+
+</button>
+
+
+</mat-dialog-actions>
+
+</div>
